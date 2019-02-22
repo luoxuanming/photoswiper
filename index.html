@@ -4,14 +4,13 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<link rel="stylesheet" type="text/css" href="" />
 		<link rel="stylesheet" href="node_modules/photoswipe/dist/photoswipe.css" />
 		<link rel="stylesheet" href="node_modules/photoswipe/dist/default-skin/default-skin.css" />
 	</head>
 
 	<body>
-		<button id="btn">Open PhotoSwipe</button>
-
+		<!--<button id="btn">Open PhotoSwipe</button>-->
+		<img src="img/qq_logo_2018x2.png" id="btn" style="border:1px solid #ddd"/>
 		<!-- Root element of PhotoSwipe. Must have class pswp. -->
 		<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
@@ -99,7 +98,7 @@
 				// define options (if needed)
 				var options = {
 					// history & focus options are disabled on CodePen  
-					index: 1,
+					//index: 1,
 					history: true,
 					focus: true,
 					showAnimationDuration: 0,
@@ -108,7 +107,30 @@
 				};
 
 				var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
-				gallery.init();
+				gallery.init(); // Initialize and open gallery
+								// (you can bind events before this method)
+				
+				gallery.goTo(0);// Go to slide by index
+								// @param {int} `index`
+				
+				// Go to the next slide
+				//gallery.next();
+				
+				// Go to the previous slide
+				//gallery.prev();
+				
+//				gallery.zoomTo (2,{
+//				 	x: gallery.viewportSize.x/2,
+//				 	y: gallery.viewportSize.y/2}, 500, false, function(now) {
+// 				});  //图库打开后，图像沿中心放大到原来的两倍
+
+//				gallery.options.getNumItemsFn()
+//				gallery.getZoomLevel();
+//				gallery.isDragging();
+//				gallery.isZooming();
+//				gallery.isMainScrollAnimating();
+
+				
 			};
 
 			//openPhotoSwipe();
