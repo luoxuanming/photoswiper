@@ -165,7 +165,6 @@
 		              		h: parseInt(size[1], 10)
 		            	};
 		          	}
-		          	
 		          	// original image
 		          	item.o = {
 		          		src: item.src,
@@ -243,7 +242,6 @@
 			            var thumbnail = items[index].el.children[0],
 			                pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
 			                rect = thumbnail.getBoundingClientRect(); 
-						
 			            return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
 			        },
 
@@ -287,13 +285,15 @@
 
 			    // Pass data to PhotoSwipe and initialize it
 			    gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
-
+				
 			    // see: http://photoswipe.com/documentation/responsive-images.html
 				var realViewportWidth,
 				    useLargeImages = false,
 				    firstResize = true,
 				    imageSrcWillChange;
-
+				    
+				    
+				/*可省略START*******************************/
 				gallery.listen('beforeResize', function() {
 					var dpiRatio = window.devicePixelRatio ? window.devicePixelRatio : 1;
 					dpiRatio = Math.min(dpiRatio, 2.5);
@@ -334,8 +334,10 @@
 				        item.w = item.m.w;
 				        item.h = item.m.h;
 				    }
-				});
-
+				});	
+				/*可省略END*****************************/
+				
+				
 			    gallery.init();
 			};
 
